@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+  <!-- Classic Mac OS Desktop Pattern - Checkerboard -->
+  <!-- Classic 8x8 checkerboard pattern -->
+  <defs>
+    <pattern id="checker" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="4" height="4" fill="#5C7A99"/>
+      <rect x="4" y="0" width="4" height="4" fill="#7A9BB8"/>
+      <rect x="0" y="4" width="4" height="4" fill="#7A9BB8"/>
+      <rect x="4" y="4" width="4" height="4" fill="#5C7A99"/>
+    </pattern>
+  </defs>
+  <rect width="16" height="16" fill="url(#checker)"/>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+  <!-- Classic Mac OS Desktop Pattern - Dots -->
+  <!-- Classic 8x8 dot pattern from System 7 Control Panel -->
+  <defs>
+    <pattern id="dots" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="8" height="8" fill="#5C7A99"/>
+      <rect x="3" y="3" width="2" height="2" fill="#7A9BB8"/>
+    </pattern>
+  </defs>
+  <rect width="16" height="16" fill="url(#dots)"/>
+</svg>

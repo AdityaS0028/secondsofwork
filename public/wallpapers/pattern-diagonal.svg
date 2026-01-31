@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+  <!-- Classic Mac OS Desktop Pattern - Diagonal -->
+  <!-- Classic diagonal lines pattern -->
+  <defs>
+    <pattern id="diagonal" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="8" height="8" fill="#5C7A99"/>
+      <line x1="0" y1="8" x2="8" y2="0" stroke="#7A9BB8" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="16" height="16" fill="url(#diagonal)"/>
+</svg>

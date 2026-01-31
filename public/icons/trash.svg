@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="64" height="64">
+  <!-- Classic Mac OS Trash Icon - System 7 Style -->
+  <defs>
+    <linearGradient id="trashGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#C0C0C0"/>
+      <stop offset="100%" style="stop-color:#A0A0A0"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Trash can body -->
+  <path d="M8 10 L8 28 Q8 30 10 30 L22 30 Q24 30 24 28 L24 10" fill="url(#trashGrad)" stroke="#808080" stroke-width="1"/>
+  
+  <!-- Trash can rim -->
+  <rect x="6" y="8" width="20" height="4" fill="#B0B0B0" stroke="#808080" stroke-width="1"/>
+  
+  <!-- Lid -->
+  <rect x="10" y="4" width="12" height="3" fill="#A0A0A0" stroke="#808080" stroke-width="1"/>
+  <rect x="13" y="2" width="6" height="2" fill="#909090" stroke="#808080" stroke-width="1"/>
+  
+  <!-- Vertical lines on can -->
+  <line x1="12" y1="12" x2="12" y2="26" stroke="#808080" stroke-width="0.5" opacity="0.5"/>
+  <line x1="16" y1="12" x2="16" y2="26" stroke="#808080" stroke-width="0.5" opacity="0.5"/>
+  <line x1="20" y1="12" x2="20" y2="26" stroke="#808080" stroke-width="0.5" opacity="0.5"/>
+</svg>

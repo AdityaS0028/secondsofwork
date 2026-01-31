@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="64" height="64">
+  <!-- Classic Mac OS Mail Icon - System 7 Style -->
+  <defs>
+    <linearGradient id="mailGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF"/>
+      <stop offset="100%" style="stop-color:#E8E8E8"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Envelope body -->
+  <rect x="2" y="8" width="28" height="20" fill="url(#mailGrad)" stroke="#808080" stroke-width="1"/>
+  
+  <!-- Envelope flap -->
+  <path d="M2 8 L16 18 L30 8" fill="#F0F0F0" stroke="#808080" stroke-width="1"/>
+  
+  <!-- Inner envelope detail -->
+  <line x1="2" y1="28" x2="12" y2="18" stroke="#C0C0C0" stroke-width="1"/>
+  <line x1="30" y1="28" x2="20" y2="18" stroke="#C0C0C0" stroke-width="1"/>
+  
+  <!-- Stamp area -->
+  <rect x="22" y="10" width="6" height="7" fill="#E0E0E0" stroke="#C0C0C0" stroke-width="0.5"/>
+  <text x="25" y="15" text-anchor="middle" font-size="4" fill="#808080">STAMP</text>
+</svg>

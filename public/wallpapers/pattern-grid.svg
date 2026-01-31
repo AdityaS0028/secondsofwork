@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+  <!-- Classic Mac OS Desktop Pattern - Grid -->
+  <!-- Classic grid pattern from System 7 -->
+  <defs>
+    <pattern id="grid" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="8" height="8" fill="#6B8BA8"/>
+      <rect x="0" y="0" width="8" height="1" fill="#8AACCC"/>
+      <rect x="0" y="0" width="1" height="8" fill="#8AACCC"/>
+    </pattern>
+  </defs>
+  <rect width="16" height="16" fill="url(#grid)"/>
+</svg>

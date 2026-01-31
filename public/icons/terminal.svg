@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="64" height="64">
+  <!-- Classic Mac OS Terminal Icon - System 7 Style -->
+  <defs>
+    <linearGradient id="termGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8E8E8"/>
+      <stop offset="100%" style="stop-color:#D0D0D0"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Terminal window -->
+  <rect x="3" y="3" width="26" height="26" rx="1" fill="url(#termGrad)" stroke="#808080" stroke-width="1"/>
+  
+  <!-- Title bar -->
+  <rect x="3" y="3" width="26" height="4" fill="#B0B0B0" stroke="#808080" stroke-width="1"/>
+  
+  <!-- Title bar stripes (System 7 style) -->
+  <pattern id="stripes" width="4" height="4" patternUnits="userSpaceOnUse">
+    <line x1="1" y1="0" x2="1" y2="4" stroke="#C0C0C0" stroke-width="1"/>
+  </pattern>
+  <rect x="3" y="3" width="26" height="4" fill="url(#stripes)"/>
+  
+  <!-- Terminal screen -->
+  <rect x="5" y="9" width="22" height="18" fill="#FFFFFF" stroke="#808080" stroke-width="0.5"/>
+  
+  <!-- Command prompt text -->
+  <text x="7" y="15" font-family="Monaco, Courier, monospace" font-size="4" fill="#000000">$</text>
+  <line x1="10" y1="15" x2="20" y2="15" stroke="#000000" stroke-width="0.5"/>
+  
+  <text x="7" y="20" font-family="Monaco, Courier, monospace" font-size="4" fill="#000000">$ _</text>
+  
+  <!-- Cursor -->
+  <rect x="16" y="17" width="2" height="3" fill="#000000">
+    <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+  </rect>
+</svg>

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="64" height="64">
+  <!-- Classic Mac OS Calendar Icon - System 7 Style -->
+  <defs>
+    <linearGradient id="calBodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5F5F5"/>
+      <stop offset="100%" style="stop-color:#E8E8E8"/>
+    </linearGradient>
+    <linearGradient id="calHeaderGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E06B6B"/>
+      <stop offset="100%" style="stop-color:#CC5555"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Calendar body -->
+  <rect x="4" y="8" width="24" height="22" rx="1" fill="url(#calBodyGrad)" stroke="#808080" stroke-width="1"/>
+  
+  <!-- Header -->
+  <rect x="4" y="8" width="24" height="6" fill="url(#calHeaderGrad)" stroke="#AA4444" stroke-width="1"/>
+  
+  <!-- Month text -->
+  <text x="16" y="13" text-anchor="middle" font-family="Chicago, Arial, sans-serif" font-size="5" fill="#FFFFFF" font-weight="bold">JAN</text>
+  
+  <!-- Calendar rings -->
+  <rect x="8" y="4" width="3" height="5" fill="#C0C0C0" stroke="#808080" stroke-width="0.5"/>
+  <rect x="21" y="4" width="3" height="5" fill="#C0C0C0" stroke="#808080" stroke-width="0.5"/>
+  
+  <!-- Date number -->
+  <text x="16" y="26" text-anchor="middle" font-family="Chicago, Arial Black, sans-serif" font-size="14" fill="#404040" font-weight="bold">31</text>
+</svg>

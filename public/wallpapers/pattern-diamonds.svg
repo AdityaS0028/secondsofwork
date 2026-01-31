@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+  <!-- Classic Mac OS Desktop Pattern - Diamonds -->
+  <!-- 8x8 repeating pattern from System 7 -->
+  <defs>
+    <pattern id="diamonds" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="8" height="8" fill="#6382A0"/>
+      <rect x="3" y="0" width="2" height="2" fill="#7A9BB8"/>
+      <rect x="0" y="3" width="2" height="2" fill="#7A9BB8"/>
+      <rect x="6" y="3" width="2" height="2" fill="#7A9BB8"/>
+      <rect x="3" y="6" width="2" height="2" fill="#7A9BB8"/>
+    </pattern>
+  </defs>
+  <rect width="16" height="16" fill="url(#diamonds)"/>
+</svg>
