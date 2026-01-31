@@ -32,8 +32,14 @@ const itemVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.5,
-      
+      duration: 0.5
+    }
+  },
+  exit: {
+    opacity: 0,
+    y: -20,
+    transition: {
+      duration: 0.3
     }
   }
 };
@@ -109,7 +115,7 @@ export const BookACall: React.FC = () => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
-              variants={containerVariants}
+              transition={{ duration: 0.3 }}
             >
               <motion.h3 variants={itemVariants} className="font-bold text-sm mb-3">
                 Select a Date
@@ -181,7 +187,7 @@ export const BookACall: React.FC = () => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
-              variants={containerVariants}
+              transition={{ duration: 0.3 }}
             >
               <motion.h3 variants={itemVariants} className="font-bold text-sm mb-3">
                 Your Information
@@ -259,7 +265,7 @@ export const BookACall: React.FC = () => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
-              variants={containerVariants}
+              transition={{ duration: 0.3 }}
             >
               <motion.h3 variants={itemVariants} className="font-bold text-sm mb-3">
                 Confirm Booking
