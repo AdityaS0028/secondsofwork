@@ -8,19 +8,28 @@ export function useWindows() {
 
   const openWindow = useCallback((app: Application, iconX?: number, iconY?: number) => {
     const id = `${app.id}-${Date.now()}`;
-    const x = iconX !== undefined ? iconX + 20 : 100 + windows.length * 30;
-    const y = iconY !== undefined ? iconY + 20 : 100 + windows.length * 30;
+    
+    // Check if mobile
+    const isMobile = window.innerWidth <= 768;
+    
+    // Mobile: full screen, Desktop: positioned
+    const x = isMobile ? 0 : (iconX !== undefined ? iconX + 20 : 100 + windows.length * 30);
+    const y = isMobile ? 32 : (iconY !== undefined ? iconY + 20 : 100 + windows.length * 30);
+    
+    // Adjust size for mobile
+    const width = isMobile ? window.innerWidth : Math.min(app.defaultWidth, window.innerWidth - 100);
+    const height = isMobile ? (window.innerHeight - 32) : Math.min(app.defaultHeight, window.innerHeight - 100);
     
     const newWindow: WindowState = {
       id,
       appId: app.id,
       title: app.name,
-      x: Math.min(x, window.innerWidth - app.defaultWidth - 50),
-      y: Math.max(40, Math.min(y, window.innerHeight - app.defaultHeight - 50)),
-      width: app.defaultWidth,
-      height: app.defaultHeight,
+      x: Math.max(0, Math.min(x, window.innerWidth - width - 20)),
+      y: Math.max(32, Math.min(y, window.innerHeight - height - 20)),
+      width,
+      height,
       isMinimized: false,
-      isMaximized: false,
+      isMaximized: isMobile, // Auto-maximize on mobile
       isActive: true,
       zIndex: nextZIndexRef.current++
     };
