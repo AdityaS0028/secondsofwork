@@ -71,66 +71,148 @@ export const Calculator: React.FC = () => {
     }
   };
 
-  const Button = ({ 
-    label, 
-    onClick, 
-    className = '',
-    wide = false 
-  }: { 
-    label: string | React.ReactNode; 
-    onClick: () => void; 
-    className?: string;
-    wide?: boolean;
-  }) => (
-    <button
-      onClick={onClick}
-      className={`
-        mac-button h-10 text-sm font-bold
-        ${wide ? 'col-span-2' : ''}
-        ${className}
-      `}
-    >
-      {label}
-    </button>
-  );
-
   return (
-    <div className="p-4 w-56 mx-auto">
+    <div className="p-4 flex flex-col items-center">
       {/* Display */}
-      <div className="mac-group-box mb-4 p-2">
-        <div className="bg-white border border-[#808080] p-2 text-right text-xl font-mono shadow-inner">
+      <div className="w-full max-w-[200px] mb-4">
+        <div className="bg-white border-2 border-gray-400 p-2 text-right text-xl font-mono shadow-inner h-10 flex items-center justify-end">
           {display}
         </div>
       </div>
 
-      {/* Keypad */}
-      <div className="grid grid-cols-4 gap-1">
-        <Button label="C" onClick={clear} className="bg-[#FF6B6B] text-white border-red-600" />
-        <Button label="÷" onClick={() => performOperation('/')} />
-        <Button label="×" onClick={() => performOperation('*')} />
-        <Button label="-" onClick={() => performOperation('-')} />
+      {/* Keypad - Using flexbox instead of grid to avoid overlap issues */}
+      <div className="w-full max-w-[200px]">
+        {/* Row 1: Clear, Divide, Multiply, Subtract */}
+        <div className="flex gap-1 mb-1">
+          <button 
+            onClick={clear}
+            className="flex-1 h-10 bg-red-400 text-white text-sm font-bold rounded shadow active:shadow-inner active:translate-y-px"
+          >
+            C
+          </button>
+          <button 
+            onClick={() => performOperation('/')}
+            className="flex-1 h-10 bg-gray-200 text-sm font-bold rounded shadow active:shadow-inner active:translate-y-px"
+          >
+            ÷
+          </button>
+          <button 
+            onClick={() => performOperation('*')}
+            className="flex-1 h-10 bg-gray-200 text-sm font-bold rounded shadow active:shadow-inner active:translate-y-px"
+          >
+            ×
+          </button>
+          <button 
+            onClick={() => performOperation('-')}
+            className="flex-1 h-10 bg-gray-200 text-sm font-bold rounded shadow active:shadow-inner active:translate-y-px"
+          >
+            -
+          </button>
+        </div>
 
-        <Button label="7" onClick={() => inputNumber('7')} />
-        <Button label="8" onClick={() => inputNumber('8')} />
-        <Button label="9" onClick={() => inputNumber('9')} />
-        <Button label="+" onClick={() => performOperation('+')} className="row-span-2 h-auto" />
+        {/* Row 2: 7, 8, 9, + */}
+        <div className="flex gap-1 mb-1">
+          <button 
+            onClick={() => inputNumber('7')}
+            className="flex-1 h-10 bg-gray-100 text-sm font-bold rounded shadow active:shadow-inner active:translate-y-px"
+          >
+            7
+          </button>
+          <button 
+            onClick={() => inputNumber('8')}
+            className="flex-1 h-10 bg-gray-100 text-sm font-bold rounded shadow active:shadow-inner active:translate-y-px"
+          >
+            8
+          </button>
+          <button 
+            onClick={() => inputNumber('9')}
+            className="flex-1 h-10 bg-gray-100 text-sm font-bold rounded shadow active:shadow-inner active:translate-y-px"
+          >
+            9
+          </button>
+          <button 
+            onClick={() => performOperation('+')}
+            className="flex-1 h-10 bg-gray-200 text-sm font-bold rounded shadow active:shadow-inner active:translate-y-px"
+          >
+            +
+          </button>
+        </div>
 
-        <Button label="4" onClick={() => inputNumber('4')} />
-        <Button label="5" onClick={() => inputNumber('5')} />
-        <Button label="6" onClick={() => inputNumber('6')} />
+        {/* Row 3: 4, 5, 6 */}
+        <div className="flex gap-1 mb-1">
+          <button 
+            onClick={() => inputNumber('4')}
+            className="flex-1 h-10 bg-gray-100 text-sm font-bold rounded shadow active:shadow-inner active:translate-y-px"
+          >
+            4
+          </button>
+          <button 
+            onClick={() => inputNumber('5')}
+            className="flex-1 h-10 bg-gray-100 text-sm font-bold rounded shadow active:shadow-inner active:translate-y-px"
+          >
+            5
+          </button>
+          <button 
+            onClick={() => inputNumber('6')}
+            className="flex-1 h-10 bg-gray-100 text-sm font-bold rounded shadow active:shadow-inner active:translate-y-px"
+          >
+            6
+          </button>
+          <div className="flex-1" /> {/* Empty spacer */}
+        </div>
 
-        <Button label="1" onClick={() => inputNumber('1')} />
-        <Button label="2" onClick={() => inputNumber('2')} />
-        <Button label="3" onClick={() => inputNumber('3')} />
-        <Button label="=" onClick={performCalculation} className="row-span-2 h-auto bg-[#4ECDC4] border-teal-600" />
+        {/* Row 4: 1, 2, 3, = */}
+        <div className="flex gap-1 mb-1">
+          <button 
+            onClick={() => inputNumber('1')}
+            className="flex-1 h-10 bg-gray-100 text-sm font-bold rounded shadow active:shadow-inner active:translate-y-px"
+          >
+            1
+          </button>
+          <button 
+            onClick={() => inputNumber('2')}
+            className="flex-1 h-10 bg-gray-100 text-sm font-bold rounded shadow active:shadow-inner active:translate-y-px"
+          >
+            2
+          </button>
+          <button 
+            onClick={() => inputNumber('3')}
+            className="flex-1 h-10 bg-gray-100 text-sm font-bold rounded shadow active:shadow-inner active:translate-y-px"
+          >
+            3
+          </button>
+          <button 
+            onClick={performCalculation}
+            className="flex-1 h-10 bg-teal-400 text-white text-sm font-bold rounded shadow active:shadow-inner active:translate-y-px"
+          >
+            =
+          </button>
+        </div>
 
-        <Button label="0" onClick={() => inputNumber('0')} wide />
-        <Button label="." onClick={inputDecimal} />
+        {/* Row 5: 0, . */}
+        <div className="flex gap-1">
+          <button 
+            onClick={() => inputNumber('0')}
+            className="flex-[2] h-10 bg-gray-100 text-sm font-bold rounded shadow active:shadow-inner active:translate-y-px"
+          >
+            0
+          </button>
+          <button 
+            onClick={inputDecimal}
+            className="flex-1 h-10 bg-gray-100 text-sm font-bold rounded shadow active:shadow-inner active:translate-y-px"
+          >
+            .
+          </button>
+          <div className="flex-1" /> {/* Empty spacer */}
+        </div>
       </div>
 
       {/* Paper Tape Button */}
       <div className="mt-4 text-center">
-        <button className="mac-button text-xs">
+        <button 
+          onClick={() => alert('Paper tape feature coming soon!')}
+          className="px-3 py-1 text-xs bg-gray-200 rounded shadow active:shadow-inner active:translate-y-px"
+        >
           Show Paper Tape
         </button>
       </div>
