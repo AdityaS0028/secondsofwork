@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { 
   X, Minus, Square, Folder, FileText, Mail, Terminal, Calculator, HelpCircle, 
   Trash2, Info, Briefcase, Quote, Calendar, Sparkles, Rocket, User, FolderOpen 
@@ -134,25 +134,11 @@ export const Window: React.FC<WindowProps> = ({
       </div>
       
       {/* Window Content */}
-      <motion.div 
-        className="mac-window-content bg-white overflow-auto mac-scrollbar"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.1 }}
-      >
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={win.id}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-            className="h-full"
-          >
-            {children}
-          </motion.div>
-        </AnimatePresence>
-      </motion.div>
+      <div className="mac-window-content bg-white overflow-auto mac-scrollbar">
+        <div className="h-full">
+          {children}
+        </div>
+      </div>
     </motion.div>
   );
 };
