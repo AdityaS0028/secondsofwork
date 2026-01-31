@@ -120,6 +120,7 @@ export const Contact: React.FC = () => {
               value={formData.name}
               onChange={handleChange}
               required
+              maxLength={100}
               className="mac-input w-full"
               placeholder="Your name"
             />
@@ -140,6 +141,7 @@ export const Contact: React.FC = () => {
               value={formData.email}
               onChange={handleChange}
               required
+              maxLength={100}
               className="mac-input w-full"
               placeholder="your@email.com"
             />
@@ -160,6 +162,7 @@ export const Contact: React.FC = () => {
               value={formData.subject}
               onChange={handleChange}
               required
+              maxLength={200}
               className="mac-input w-full"
               placeholder="What is this about?"
             />
@@ -179,6 +182,7 @@ export const Contact: React.FC = () => {
               onChange={handleChange}
               required
               rows={4}
+              maxLength={5000}
               className="mac-input w-full resize-none"
               placeholder="Tell us about your project or question..."
             />

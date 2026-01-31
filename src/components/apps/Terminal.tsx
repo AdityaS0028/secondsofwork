@@ -6,6 +6,88 @@ interface TerminalCommand {
   isError?: boolean;
 }
 
+// Safe math evaluation without eval()
+const safeEvaluate = (expression: string): number => {
+  // Remove all non-math characters
+  const sanitized = expression.replace(/[^0-9+\-*/.() ]/g, '').trim();
+  
+  if (!sanitized) {
+    throw new Error('Empty expression');
+  }
+
+  // Check for valid characters only
+  if (!/^[\d+\-*/.()\s]+$/.test(sanitized)) {
+    throw new Error('Invalid characters in expression');
+  }
+
+  // Split into tokens
+  const tokens = sanitized.match(/\d+\.?\d*|[+\-*/()]/g) || [];
+  
+  if (tokens.length === 0) {
+    throw new Error('No valid tokens');
+  }
+
+  // Simple calculator using shunting yard algorithm
+  const output: (number | string)[] = [];
+  const operators: string[] = [];
+  const precedence: Record<string, number> = { '+': 1, '-': 1, '*': 2, '/': 2 };
+
+  for (const token of tokens) {
+    if (/^\d+\.?\d*$/.test(token)) {
+      output.push(parseFloat(token));
+    } else if (token === '(') {
+      operators.push(token);
+    } else if (token === ')') {
+      while (operators.length > 0 && operators[operators.length - 1] !== '(') {
+        output.push(operators.pop()!);
+      }
+      operators.pop(); // Remove '('
+    } else {
+      while (
+        operators.length > 0 &&
+        operators[operators.length - 1] !== '(' &&
+        precedence[operators[operators.length - 1]] >= precedence[token]
+      ) {
+        output.push(operators.pop()!);
+      }
+      operators.push(token);
+    }
+  }
+
+  while (operators.length > 0) {
+    output.push(operators.pop()!);
+  }
+
+  // Evaluate RPN
+  const stack: number[] = [];
+  for (const token of output) {
+    if (typeof token === 'number') {
+      stack.push(token);
+    } else {
+      const b = stack.pop();
+      const a = stack.pop();
+      if (a === undefined || b === undefined) {
+        throw new Error('Invalid expression');
+      }
+      switch (token) {
+        case '+': stack.push(a + b); break;
+        case '-': stack.push(a - b); break;
+        case '*': stack.push(a * b); break;
+        case '/': 
+          if (b === 0) throw new Error('Division by zero');
+          stack.push(a / b); 
+          break;
+      }
+    }
+  }
+
+  if (stack.length !== 1) {
+    throw new Error('Invalid expression');
+  }
+
+  return stack[0];
+};
+
 export const Terminal: React.FC = () => {
   const [history, setHistory] = useState<TerminalCommand[]>([
     { input: '', output: 'Mac OS Terminal\nVersion 1.0\nType "help" for available commands.' }
@@ -66,12 +148,12 @@ Documents/
 Downloads/
 Library/
 System Folder/
- Utilities/
-  Calculator.app
-  Terminal.app
-  About.app
-  Projects.app
-  Contact.app`;
+  Utilities/
+   Calculator.app
+   Terminal.app
+   About.app
+   Projects.app
+   Contact.app`;
         break;
 
       case 'pwd':
@@ -88,9 +170,8 @@ System Folder/
           if (!expression) {
             output = 'Usage: calc <expression>\nExample: calc 2 + 2';
           } else {
-            // Simple safe evaluation
-            const sanitized = expression.replace(/[^0-9+\-*/.() ]/g, '');
-            output = eval(sanitized).toString();
+            const result = safeEvaluate(expression);
+            output = result.toString();
           }
         } catch (e) {
           output = 'Error: Invalid expression';
@@ -185,6 +266,7 @@ Version 1.0 - 2024`;
             className="flex-1 bg-transparent border-none outline-none text-green-500 ml-1 font-mono"
             autoFocus
             spellCheck={false}
+            maxLength={200}
           />
         </form>
         <div ref={bottomRef} />
