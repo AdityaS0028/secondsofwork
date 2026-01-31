@@ -16,8 +16,8 @@
 
 // Configuration - UPDATE THESE VALUES
 const RESEND_API_KEY = 'YOUR_RESEND_API_KEY'; // Replace with your actual API key
-const FROM_EMAIL = 'contact@secondsofwork.com'; // Must be verified in Resend
-const TO_EMAIL = 'info@secondsofwork.com'; // Your receiving email
+const FROM_EMAIL = 'aditya@secondsofwork.com'; // Must be verified in Resend
+const TO_EMAIL = 'aditya@secondsofwork.com'; // Your receiving email
 
 // Allowed origins - UPDATE THIS with your domain
 const ALLOWED_ORIGINS = [

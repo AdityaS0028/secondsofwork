@@ -19,8 +19,8 @@ export const Contact: React.FC = () => {
     setError(null);
     
     try {
-      // Replace with your Cloudflare Worker URL
-      const response = await fetch('https://contact-form.secondsofwork.workers.dev', {
+      // Cloudflare Worker URL
+      const response = await fetch('https://contact-form.adityans2k15.workers.dev', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

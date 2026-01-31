@@ -3,8 +3,8 @@ main = "index.js"
 compatibility_date = "2024-01-01"
 
 [vars]
-FROM_EMAIL = "contact@secondsofwork.com"
-TO_EMAIL = "info@secondsofwork.com"
+FROM_EMAIL = "aditya@secondsofwork.com"
+TO_EMAIL = "aditya@secondsofwork.com"
 
 # Secrets (set via wrangler secret put RESEND_API_KEY)
 # RESEND_API_KEY = "your_api_key_here"
